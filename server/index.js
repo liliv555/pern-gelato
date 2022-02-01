@@ -1,9 +1,12 @@
-require('dotenv').config()
-const express = require('express');
+import 'dotenv/config';
+import dbInit from './db/init.js';
+import express from 'express';
 const app = express();
-const cors = require('cors');
+import cors from 'cors';
 
 const port = 5000;
+
+dbInit();
 
 // Middleware
 

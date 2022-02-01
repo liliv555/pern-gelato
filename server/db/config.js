@@ -1,4 +1,4 @@
-require('dotenv/config');
+import 'dotenv/config'
 import { Sequelize } from 'sequelize';
 
 const dbName = process.env.PG_DB;
