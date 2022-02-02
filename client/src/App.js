@@ -1,11 +1,17 @@
-import React from 'react';
-import './App.css';
+import React, { Fragment } from 'react';
+import './assets/stylesheets/app.scss';
+
+// components
+import Searchbar from './components/Searchbar';
+import GelatoList from './components/GelatoList';
 
 function App() {
   return (
-    <div className="App">
-    </div>
-  );
+    <Fragment>
+      <Searchbar />
+      <GelatoList />
+    </Fragment>
+  )
 }
 
 export default App;
