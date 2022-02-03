@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Modal } from 'react-bootstrap';
+
 
 class EditForm extends Component {
   constructor(props) {
@@ -8,14 +10,25 @@ class EditForm extends Component {
       id: this.props.id,
       title: this.props.title,
       description: this.props.description,
-      imageUrl: this.props.imageUrl
+      imageUrl: this.props.imageUrl,
+      show: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  // https://reactjs.org/docs/forms.html#handling-multiple-inputs
+  handleClose = () => {
+    this.setState( {show: false} )
+  }
+  handleShow = () => {
+    console.log(this.state)
+    this.setState( {show: true } )
+  }
+
+
   handleChange(e) {
     const { target }  = e;
     const { value } = target;
@@ -24,8 +37,8 @@ class EditForm extends Component {
     this.setState({ [name]: value });
   }
 
-
   handleSubmit(e) {
+    this.setState( {show: false} )
     e.preventDefault();
     const { id, title, description, imageUrl } = this.state;
     const body = { id, title, description, imageUrl };
@@ -38,24 +51,38 @@ class EditForm extends Component {
     };
     fetch(`http://localhost:5000/gelatos/${this.state.id}`, requestOptions)
       .then(response => response.json());
-    // axios.put('http://localhost:3000/api/user/' + this.props.data, json).then(response => {});
     }
 
   render() {
     return (
-        <div>
-            <h1>Hello {this.props.title} </h1>
-            <form onSubmit={this.handleSubmit}>
-                <label>Title</label>
-                <input type="text" name="title" onChange={this.handleChange} defaultValue={this.state.title}></input>
-                <label>Description</label>
-                <input type="text" name="description" onChange={this.handleChange} defaultValue={this.state.description}></input>
-                <label>Image URL</label>
-                <input type="text" name="imageUrl" onChange={this.handleChange} defaultValue={this.state.imageUrl}></input>
-
-                <button type="submit" >Update</button>
-            </form>
-        </div>
+      <>
+        <button className="option-icon" onClick={this.handleShow}>
+          <i class="fa fa-edit"></i>
+        </button>
+  
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+          <h1>Edit {this.props.title} gelato</h1>
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+                <form className="form-control p-3" onSubmit={this.handleSubmit}>
+                    <label className='m-2'>Title</label>
+                    <input type="text" name="title" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.title}></input>
+                    <label className='m-2'>Description</label>
+                    <textarea name="description" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.description}  rows="3"></textarea>
+                    {/* <input type="text" name="description" className="form-control" onChange={this.handleChange} defaultValue={this.state.description}></input> */}
+                    <label className='m-2'>Image URL</label>
+                    <input type="text" name="imageUrl" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.imageUrl}></input>
+                    <div className="options">
+                      <button className="button-form" type="submit" > Update </button>
+                      <button className="button-form" onClick={this.handleClose}> Close </button>
+                    </div>
+                </form>
+            </div>
+        </Modal.Body>
+        </Modal>
+      </>
     );
   }
 }

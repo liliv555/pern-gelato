@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import EditGelato from './EditGelato'
+import EditForm from './EditForm'
 
 
 class Gelato extends Component {
@@ -11,9 +11,8 @@ class Gelato extends Component {
                 <h1>{this.props.title}</h1>
                 <p>{this.props.description}</p>
                 <div className="card-options">
-                    <EditGelato gelato={this} />
-                    {/* <i class="fa fa-edit"></i>
-                    <i class="fas fa-trash-alt"></i> */}
+                    <EditForm key={this.props.id} id={this.props.id} title={this.props.title} description={this.props.description} imageUrl={this.props.imageUrl} />
+                    <button className="option-icon"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
         );
