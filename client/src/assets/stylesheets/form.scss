@@ -1,0 +1,18 @@
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: self-end;
+    height: 60px;
+}
+
+.button-form {
+    background-color: #f94144;
+    color: white;
+    width: 120px;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+}
+
+.button-form:hover {
+    background-color: #f3722c;
+}
