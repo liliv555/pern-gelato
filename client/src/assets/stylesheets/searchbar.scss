@@ -1,0 +1,13 @@
+.searchbar {
+    background-color: #F6F4D2;
+    width: 30%;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.searchbar:focus {
+    outline: none;
+}

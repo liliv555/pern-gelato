@@ -32,3 +32,7 @@ export const update = async (id, gelatoAttributes) => {
 export const destroy = async (id) => {
     return await service.destroy(id);
 };
+
+export const getByTitle = async (title) => {
+    return await service.getByTitle(title);
+};

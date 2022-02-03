@@ -6,7 +6,14 @@ const router = Router();
 // get all gelatos
 router.get('/gelatos', async(req, res) => {
     try {
-        const result = await controller.getAllGelatos();
+        // For simplicity only searching for title
+        const title = req.query.title
+        let result = []
+        if (title === undefined) {
+            result = await controller.getAllGelatos();
+        } else {
+            result = await controller.getByTitle(title);
+        }
         return res.status(200).send(result);
     } catch (error) {
         console.log(error);

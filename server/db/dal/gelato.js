@@ -1,4 +1,6 @@
 import Gelato from '../model/gelato.js';
+import { Sequelize } from 'sequelize';
+const Op = Sequelize.Op;
 
 // get all gelatos
 export const getAllGelatos = async () => {
@@ -36,3 +38,13 @@ export const destroy = async (id) => {
     return !!deletedGelatoCount;
 };
 // search gelatos
+export const getByTitle = async (title) => {
+    const gelatos = Gelato.findAll({
+        where: {
+            title: {
+                [Op.like]: `%${title}%`
+            }
+        }
+    })
+    return gelatos;
+}
