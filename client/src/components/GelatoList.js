@@ -16,10 +16,10 @@ const GelatoList = (props) => {
         }
     };
 
-    // const previousRef = useRef(queryString)
+    // This is the messy part i guess?
     useEffect(() => {
         getGelatos();
-    }, [props.queryString]);
+    }, [props.queryString, props.created, gelatos]);
     
     return (
         <HorizontalScroll>
