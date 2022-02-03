@@ -43,7 +43,6 @@ class EditForm extends Component {
   // send put request with the state
   handleSubmit(e) {
     this.setState( {show: false} )
-    this.props.getGelatos();
     e.preventDefault();
     const { id, title, description, imageUrl } = this.state;
     const body = { id, title, description, imageUrl };
@@ -56,6 +55,7 @@ class EditForm extends Component {
     };
     fetch(`http://localhost:5000/gelatos/${this.state.id}`, requestOptions)
       .then(response => response.json());
+    this.props.gelatoModified(body);
     }
 
   render() {
@@ -76,7 +76,6 @@ class EditForm extends Component {
                     <input type="text" name="title" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.title}></input>
                     <label className='m-2'>Description</label>
                     <textarea name="description" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.description}  rows="3"></textarea>
-                    {/* <input type="text" name="description" className="form-control" onChange={this.handleChange} defaultValue={this.state.description}></input> */}
                     <label className='m-2'>Image URL</label>
                     <input type="text" name="imageUrl" className="form-control p-2" onChange={this.handleChange} defaultValue={this.state.imageUrl}></input>
                     <div className="options">

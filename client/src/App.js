@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import './assets/stylesheets/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,23 +9,38 @@ import Creategelato from './components/CreateGelato';
 
 const App = () => {
   const [queryString, setQueryString] = useState([]);
-  const [created, setCreated] = useState([]);
+  const [gelatos, setGelatos] = useState([]);
+  const [modified, setModified] = useState([]);
+
+  const getGelatos = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/gelatos?title=${queryString}`);
+        const jsonData = await response.json();
+        setGelatos(jsonData);
+      } catch (err) {
+        console.error(err.message);
+      };
+  };
+
+  useEffect(() => {
+    getGelatos();
+  }, [modified, queryString]);
 
   const search = (query) => {
     setQueryString(query);
   };
 
-  const gelatoCreated = (newBody) => {
-    setCreated(newBody);
+  const gelatoModified = (newBody) => {
+    setModified(newBody);
   };
 
   return (
     <Fragment>
       <Searchbar searchFunction={search}/>
       <div className="wrapper">
-        <GelatoList queryString={queryString} created={created}/>
+        <GelatoList gelatos={gelatos} gelatoModified={gelatoModified}/>
       </div>
-      <Creategelato gelatoCreated={gelatoCreated}/>
+      <Creategelato gelatoCreated={gelatoModified}/>
     </Fragment>
   )
 }

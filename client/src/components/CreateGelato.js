@@ -39,7 +39,9 @@ const CreateGelato = (props) => {
             <div>
                 <form className="form-control p-3" onSubmit={handleSubmit}>
                     <label className='m-2'>Title</label>
-                    <input type="text" name="title" className="form-control p-2" onChange={(e) => setTitle(e.target.value)}></input>
+                    <input type="text"
+                        name="title"
+                        className="form-control p-2" onChange={(e) => setTitle(e.target.value)}></input>
                     <label className='m-2'>Description</label>
                     <textarea name="description" className="form-control p-2" onChange={(e) => setDescription(e.target.value)} rows="3"></textarea>
                     <label className='m-2'>Image URL</label>
