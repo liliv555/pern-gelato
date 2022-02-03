@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import './assets/stylesheets/app.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
 import Searchbar from './components/Searchbar';
@@ -9,7 +10,9 @@ function App() {
   return (
     <Fragment>
       <Searchbar />
-      <GelatoList />
+      <div className="wrapper">
+        <GelatoList />
+      </div>
     </Fragment>
   )
 }
