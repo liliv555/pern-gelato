@@ -20,15 +20,18 @@ class EditForm extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
+  // Close modal
   handleClose = () => {
-    this.setState( {show: false} )
-  }
+    this.setState( {show: false} );
+    this.props.getGelatos();
+  };
+
+  // Open modal
   handleShow = () => {
-    console.log(this.state)
-    this.setState( {show: true } )
-  }
+    this.setState( {show: true } );
+  };
 
-
+  // set state to the input values
   handleChange(e) {
     const { target }  = e;
     const { value } = target;
@@ -37,6 +40,7 @@ class EditForm extends Component {
     this.setState({ [name]: value });
   }
 
+  // send put request with the state
   handleSubmit(e) {
     this.setState( {show: false} )
     e.preventDefault();
@@ -57,7 +61,7 @@ class EditForm extends Component {
     return (
       <>
         <button className="option-icon" onClick={this.handleShow}>
-          <i class="fa fa-edit"></i>
+          <i className="fa fa-edit"></i>
         </button>
   
         <Modal show={this.state.show} onHide={this.handleClose}>
