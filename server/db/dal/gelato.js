@@ -2,9 +2,9 @@ import Gelato from '../model/gelato.js';
 import { Sequelize } from 'sequelize';
 const Op = Sequelize.Op;
 
-// get all gelatos
+// get all gelatos, sorting is delegated to the database
 export const getAllGelatos = async () => {
-    const gelatos = await Gelato.findAll();
+    const gelatos = await Gelato.findAll({ order: [['updatedAt', 'DESC']] });
     return gelatos;
 };
 
@@ -37,14 +37,15 @@ export const destroy = async (id) => {
     });
     return !!deletedGelatoCount;
 };
-// search gelatos
+// search gelatos, sorting is delegated to the database
 export const getByTitle = async (title) => {
     const gelatos = Gelato.findAll({
         where: {
             title: {
                 [Op.like]: `%${title}%`
             }
-        }
+        },
+        order: [['updatedAt', 'DESC']]
     })
     return gelatos;
 }
