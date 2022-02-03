@@ -30,7 +30,8 @@ const GelatoList = () => {
                 title={gelato.title}
                 description={gelato.description} 
                 imageUrl={gelato.imageUrl}
-                key={gelato.id} />)}
+                key={gelato.id}
+                getGelatos={getGelatos} />)}
           </div>
         </HorizontalScroll>
     );
