@@ -43,6 +43,7 @@ class EditForm extends Component {
   // send put request with the state
   handleSubmit(e) {
     this.setState( {show: false} )
+    this.props.getGelatos();
     e.preventDefault();
     const { id, title, description, imageUrl } = this.state;
     const body = { id, title, description, imageUrl };
