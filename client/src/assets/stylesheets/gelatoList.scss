@@ -1,3 +1,14 @@
+.wrapper {
+    margin-left: 10vw;
+    margin-top: 17vh;
+}
+
 .list-container {
-    
+    height: 58vh;
+    display: flex;
+    padding-left: 28vw;
+}
+
+.HorizontalScroll .HorizontalScrollTrack .HorizontalScrollTrackInner {
+    display: none;
 }

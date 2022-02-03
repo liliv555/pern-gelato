@@ -1,4 +1,6 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
+import HorizontalScroll from 'react-horizontal-scrolling'
+
 import Gelato from './Gelato';
 
 const GelatoList = () => {
@@ -20,15 +22,17 @@ const GelatoList = () => {
     
       console.log(gelatos);
     return (
-        <div className='list-container'>
-            {gelatos.map(gelato =>
-            <Gelato
-              id={gelato.id}
-              title={gelato.title}
-              description={gelato.description} 
-              imageUrl={gelato.imageUrl}
-              key={gelato.id} />)}
-        </div>
+        <HorizontalScroll>
+          <div className='list-container'>
+              {gelatos.map(gelato =>
+              <Gelato
+                id={gelato.id}
+                title={gelato.title}
+                description={gelato.description} 
+                imageUrl={gelato.imageUrl}
+                key={gelato.id} />)}
+          </div>
+        </HorizontalScroll>
     );
 }
 

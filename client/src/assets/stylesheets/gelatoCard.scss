@@ -1,0 +1,40 @@
+.gelato-card {
+    min-height: 83%;
+    width: 337px;
+    background: #f6f4d2;
+    margin: 1rem;
+    padding: 1rem;
+    border: solid #f6f4d2 0.5rem;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 57%;
+    object-fit: cover;
+}
+
+.gelato-card:hover {
+    background: #D4E09B;
+    transform: scale(1.005);
+    transition: all 0.2s;
+}
+
+.card-options {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+}
+
+.icon {
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    color: #f94144;
+}
+
+.icon:hover {
+    color: #f3722c;
+}
