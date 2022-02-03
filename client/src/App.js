@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import './assets/stylesheets/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -6,12 +6,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchbar from './components/Searchbar';
 import GelatoList from './components/GelatoList';
 
-function App() {
+const App = () => {
+  const [queryString, setQueryString] = useState([]);
+
+  const search = (query) => {
+    setQueryString(query);
+  };
+
   return (
     <Fragment>
-      <Searchbar />
+      <Searchbar searchFunction={search} />
       <div className="wrapper">
-        <GelatoList />
+        <GelatoList queryString={queryString}/>
       </div>
     </Fragment>
   )

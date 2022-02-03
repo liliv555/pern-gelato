@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import HorizontalScroll from 'react-horizontal-scrolling'
 
 import Gelato from './Gelato';
 
-const GelatoList = () => {
+const GelatoList = (props) => {
     const [gelatos, setGelatos] = useState([]);
     const getGelatos = async () => {
         try {
-          const response = await fetch("http://localhost:5000/gelatos");
+          console.log(props.queryString)
+          const response = await fetch(`http://localhost:5000/gelatos?title=${props.queryString}`);
           const jsonData = await response.json();
-    
           setGelatos(jsonData);
         } catch (err) {
           console.error(err.message);
         }
-      };
-    
-      useEffect(() => {
+    };
+
+    // const previousRef = useRef(queryString)
+    useEffect(() => {
         getGelatos();
-      }, []);
+    }, [props.queryString]);
     
-      console.log(gelatos);
     return (
         <HorizontalScroll>
           <div className='list-container'>
