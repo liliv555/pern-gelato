@@ -1,4 +1,6 @@
-import 'dotenv/config'
+if (process.env.NODE_ENV !== 'production') {
+  import 'dotenv/config';
+}
 import { Sequelize } from 'sequelize';
 
 const dbName = process.env.PG_DB;

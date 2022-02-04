@@ -1,4 +1,6 @@
-import 'dotenv/config';
+if (process.env.NODE_ENV !== 'production') {
+    import 'dotenv/config';
+}
 import dbInit from './db/init.js';
 import express from 'express';
 import router from './routes.js';
