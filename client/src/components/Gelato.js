@@ -9,14 +9,6 @@ const Gelato = (props) => {
   const deleteGelato = async (id) => {
     await service.remove(id);
     props.gelatoModified(id)
-      // try {
-      //   await fetch(`http://localhost:5000/gelatos/${id}`, {
-      //     method: "DELETE"
-      //   });
-      //   props.gelatoModified(id)
-      // } catch (err) {
-      //   console.error(err.message);
-      // }
   };
     return (
         <div className='gelato-card'>
@@ -29,6 +21,7 @@ const Gelato = (props) => {
                     title={props.title}
                     description={props.description}
                     imageUrl={props.imageUrl}
+                    modified={props.modified}
                     gelatoModified={props.gelatoModified}
                     />
                 <button className="option-icon" onClick={() => deleteGelato(props.id)}><i className="fas fa-trash-alt"></i></button>

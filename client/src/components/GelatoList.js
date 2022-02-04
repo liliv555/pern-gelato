@@ -14,6 +14,7 @@ const GelatoList = (props) => {
                 description={gelato.description} 
                 imageUrl={gelato.imageUrl}
                 key={gelato.id} 
+                modified={props.modified}
                 gelatoModified={props.gelatoModified}
                 />)}
           </div>

@@ -43,13 +43,13 @@ class EditForm extends Component {
 
   // send put request with the state
   handleSubmit(e) {
-    this.setState( {show: false} )
     e.preventDefault();
     const { id, title, description, imageUrl } = this.state;
     const body = { id, title, description, imageUrl };
     const json = JSON.stringify(body);
     service.update(json, this.state.id);
     this.props.gelatoModified(body);
+    this.setState( {show: false} );
     }
 
   render() {

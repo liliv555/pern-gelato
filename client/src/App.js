@@ -38,7 +38,7 @@ const App = () => {
     <Fragment>
       <Searchbar searchFunction={search}/>
       <div className="wrapper">
-        <GelatoList gelatos={gelatos} gelatoModified={gelatoModified}/>
+        <GelatoList gelatos={gelatos} gelatoModified={gelatoModified} modified={modified}/>
       </div>
       <Creategelato gelatoCreated={gelatoModified}/>
     </Fragment>
