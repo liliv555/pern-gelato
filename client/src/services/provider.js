@@ -2,7 +2,7 @@
 
 // Define your api url from any source.
 // Pulling from your .env file when on the server or from localhost when locally
-const BASE_URL = 'http://localhost:5000/gelatos'; 
+const BASE_URL = '/gelatos'; 
 
 export const getGelatos = async (queryString) => { 
     try {

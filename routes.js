@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import * as controller from './controllers/gelatoController.js'
+import * as controller from './controllers/gelatoController.js';
+import * as path from 'path';
 
 const router = Router();
 
@@ -63,6 +64,13 @@ router.delete('/gelatos/:id', async(req, res) => {
     } catch (error) {
         console.log(error);
     };
+});
+
+
+const __dirname = path.resolve(path.dirname('')); 
+
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 // search gelatos

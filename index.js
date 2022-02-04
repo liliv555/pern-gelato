@@ -2,10 +2,11 @@ import 'dotenv/config';
 import dbInit from './db/init.js';
 import express from 'express';
 import router from './routes.js';
-const app = express();
 import cors from 'cors';
+import * as path from 'path'
 
-const port = 5000;
+const app = express();
+const PORT = process.env.PORT || 5000;
 
 dbInit();
 
@@ -14,8 +15,16 @@ dbInit();
 app.use(cors());
 app.use(express.json());
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+const __dirname = path.resolve(path.dirname('')); 
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")));
+};
+
+console.log(path.join(__dirname, "client/build"))
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
 });
 
 app.use(router);
