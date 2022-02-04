@@ -1,5 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
-  import 'dotenv/config';
+if (process.env.NODE_ENV != 'production') {
+  console.log("TEST");
+  //import 'dotenv/config';
 }
 import { Sequelize } from 'sequelize';
 
