@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import fagyi from './assets/fagyi.png'
 import './assets/stylesheets/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as service from './services/provider.js'
 
 // components
 import Searchbar from './components/Searchbar';
@@ -15,8 +15,7 @@ const App = () => {
 
   const getGelatos = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/gelatos?title=${queryString}`);
-        const jsonData = await response.json();
+        const jsonData = await service.getGelatos(queryString);
         setGelatos(jsonData);
       } catch (err) {
         console.error(err.message);
@@ -38,7 +37,6 @@ const App = () => {
   return (
     <Fragment>
       <Searchbar searchFunction={search}/>
-      {/* <img className="fagyi" src={fagyi} alt={"logo"}/>  */}
       <div className="wrapper">
         <GelatoList gelatos={gelatos} gelatoModified={gelatoModified}/>
       </div>
