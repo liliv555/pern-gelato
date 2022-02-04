@@ -1,13 +1,6 @@
-//console.log("CHECKING ENV!!!! ", process.env.NODE_ENV);
-// if (process.env.NODE_ENV != 'production') {
-//     console.log("TEST1");
-//     import 'dotenv/config';
-// }
-
 import dotenv from "dotenv";
 dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 
-// import 'dotenv/config';
 import dbInit from './db/init.js';
 import express from 'express';
 import router from './routes.js';

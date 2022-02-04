@@ -1,16 +1,7 @@
-// if (process.env.NODE_ENV != 'production') {
-//   console.log("TEST2");
-//   //import 'dotenv/config';
-// }
 import dotenv from "dotenv";
 dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 
 import { Sequelize } from 'sequelize';
-
-const dbName = process.env.PG_DB;
-const dbUser = process.env.PG_USER;
-const dbHost = process.env.PG_HOST;
-const dbPassword = process.env.PG_PASSWORD;
 
 let sequelizeConnection = undefined;
 
@@ -26,6 +17,10 @@ if (process.env.NODE_ENV === "production") {
     }
   });
 } else {
+  const dbName = process.env.PG_DB;
+  const dbUser = process.env.PG_USER;
+  const dbHost = process.env.PG_HOST;
+  const dbPassword = process.env.PG_PASSWORD;
   sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,
     dialect: 'postgres'
