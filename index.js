@@ -1,3 +1,4 @@
+console.log("CHECKING ENV!!!! ", process.env.NODE_ENV);
 if (process.env.NODE_ENV !== 'production') {
     import 'dotenv/config';
 }
