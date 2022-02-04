@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === "production") {
     }
   });
 } else {
-  console.log("Im here")
   sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,
     dialect: 'postgres'
