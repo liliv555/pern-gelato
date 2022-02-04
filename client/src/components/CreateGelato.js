@@ -28,8 +28,8 @@ const CreateGelato = (props) => {
     return (
         <Fragment>
         <>
-        <button onClick={handleShow}>
-            <i className="fas fa-ice-cream"></i> Create new gelato
+        <button className="new-button" onClick={handleShow}>
+            <i className="fas fa-ice-cream"></i> Add gelato
         </button>
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

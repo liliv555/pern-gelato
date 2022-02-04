@@ -63,3 +63,41 @@ h1 {
 	cursor: pointer;
 	outline: inherit;
 }
+
+.new-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #f6f4d2;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #f94144;
+    font-size: 1.5rem;
+    margin: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.new-button:hover {
+    color: #f6f4d2;
+    background-color: transparent;
+    border: 1px #f6f4d2 solid;
+    transform: scale(1.1);
+    transition: all 0.4s;
+}
+
+// .fagyi {
+//     height: 150px;
+//     animation: rotation 3s infinite linear;
+//     float: right;
+//     margin-right: 53px;
+// }
+
+// @keyframes rotation {
+//     from {
+//       transform: rotate(0deg);
+//     }
+//     to {
+//       transform: rotate(359deg);
+//     }
+//   }

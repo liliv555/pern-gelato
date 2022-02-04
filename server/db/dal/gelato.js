@@ -42,7 +42,7 @@ export const getByTitle = async (title) => {
     const gelatos = Gelato.findAll({
         where: {
             title: {
-                [Op.like]: `%${title}%`
+                [Op.iLike]: `%${title}%`
             }
         },
         order: [['updatedAt', 'DESC']]

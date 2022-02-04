@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import fagyi from './assets/fagyi.png'
 import './assets/stylesheets/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,6 +38,7 @@ const App = () => {
   return (
     <Fragment>
       <Searchbar searchFunction={search}/>
+      {/* <img className="fagyi" src={fagyi} alt={"logo"}/>  */}
       <div className="wrapper">
         <GelatoList gelatos={gelatos} gelatoModified={gelatoModified}/>
       </div>
