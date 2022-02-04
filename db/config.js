@@ -1,7 +1,10 @@
-if (process.env.NODE_ENV != 'production') {
-  console.log("TEST");
-  //import 'dotenv/config';
-}
+// if (process.env.NODE_ENV != 'production') {
+//   console.log("TEST2");
+//   //import 'dotenv/config';
+// }
+import dotenv from "dotenv";
+dotenv.config({ silent: process.env.NODE_ENV === 'production' });
+
 import { Sequelize } from 'sequelize';
 
 const dbName = process.env.PG_DB;
