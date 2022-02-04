@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
+import * as service from '../services/provider.js'
 
 
 class EditForm extends Component {
@@ -47,14 +48,7 @@ class EditForm extends Component {
     const { id, title, description, imageUrl } = this.state;
     const body = { id, title, description, imageUrl };
     const json = JSON.stringify(body);
-    console.log(json)
-    const requestOptions = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: json
-    };
-    fetch(`http://localhost:5000/gelatos/${this.state.id}`, requestOptions)
-      .then(response => response.json());
+    service.update(json, this.state.id);
     this.props.gelatoModified(body);
     }
 

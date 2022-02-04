@@ -4,8 +4,6 @@ import HorizontalScroll from 'react-horizontal-scrolling'
 import Gelato from './Gelato';
 
 const GelatoList = (props) => {
-    // package service, 
-    // wrapper component handles state HOC
     return (
         <HorizontalScroll>
           <div className='list-container'>

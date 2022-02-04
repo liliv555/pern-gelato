@@ -1,19 +1,22 @@
 import React from 'react';
 
 import EditForm from './EditForm'
+import * as service from '../services/provider.js'
 
 
 const Gelato = (props) => {
 
   const deleteGelato = async (id) => {
-      try {
-        await fetch(`http://localhost:5000/gelatos/${id}`, {
-          method: "DELETE"
-        });
-        props.gelatoModified(id)
-      } catch (err) {
-        console.error(err.message);
-      }
+    await service.remove(id);
+    props.gelatoModified(id)
+      // try {
+      //   await fetch(`http://localhost:5000/gelatos/${id}`, {
+      //     method: "DELETE"
+      //   });
+      //   props.gelatoModified(id)
+      // } catch (err) {
+      //   console.error(err.message);
+      // }
   };
     return (
         <div className='gelato-card'>

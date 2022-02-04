@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import * as service from '../services/provider.js'
 
 const CreateGelato = (props) => {
     const [title, setTitle] = useState("");
@@ -16,13 +17,14 @@ const CreateGelato = (props) => {
         const body = { title, description, imageUrl }
         props.gelatoCreated(body);
         const json = JSON.stringify(body);
-        const requestOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: json
-        };
-        fetch(`http://localhost:5000/gelatos/`, requestOptions)
-          .then(response => response.json());
+        await service.create(json)
+        // const requestOptions = {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: json
+        // };
+        // fetch(`http://localhost:5000/gelatos/`, requestOptions)
+        //   .then(response => response.json());
     }
 
     return (
