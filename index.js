@@ -1,5 +1,5 @@
 console.log("CHECKING ENV!!!! ", process.env.NODE_ENV);
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV != 'production') {
     import 'dotenv/config';
 }
 import dbInit from './db/init.js';
